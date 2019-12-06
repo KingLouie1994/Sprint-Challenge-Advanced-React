@@ -22,7 +22,7 @@ const Card = styled.div`
   background-color: lightgrey;
   width: 25%;
   padding: 1%;
-  border-radius: 5%;
+  border-radius: 0%;
   margin: 3%;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;

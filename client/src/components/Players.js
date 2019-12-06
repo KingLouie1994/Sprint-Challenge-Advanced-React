@@ -40,5 +40,6 @@ const Container = styled.div`
 display: flex;  
 flex-wrap: wrap;
 margin: 2%;
+justify-content: space-between;
 `;
 

@@ -1,14 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import useDarkMode from '../hooks/useDarkMode';
 
-export default class Header extends Component {
-  render() {
-    return (
-      <Head>
-        <h1>Ranking of most searched sportswomen:</h1>
-      </Head>
-    );
-  }
+export default function Header() {
+  const [darkMode, setDarkMode] = useDarkMode(false);
+  const toggleMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
+
+  return (
+    <Head className="navbar">
+      <h1>Womens World Cup</h1>
+      <div className="dark-mode__toggle">
+        <div
+          onClick={toggleMode}
+          className={darkMode ? "toggle toggled" : "toggle"}
+        />
+      </div>
+    </Head>
+  );
 }
 
 // Styling here:
@@ -28,4 +39,5 @@ const Head = styled.div`
 
   h1 {
     color: white;
-  }`;
+  }
+`;
