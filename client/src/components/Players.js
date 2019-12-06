@@ -1,30 +1,44 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import PlayerCard from './PlayerCard';
 
 export default class Players extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            player: [],
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      player: []
+    };
+  }
 
-    componentDidMount() {
-        axios
-            .get('http://localhost:5000/api/players')
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/api/players")
+      .then(response => {
+        const player = response.data;
+        this.setState({ player });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
-    render() {
-        return(
-            <div>
-                hi :)
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        {this.state.player.map(player => (
+          <PlayerCard  player={player}/>
+        ))}
+      </Container>
+    );
+  }
 }
+
+// Styling here:
+
+const Container = styled.div`
+display: flex;  
+flex-wrap: wrap;
+margin: 2%;
+`;
+
