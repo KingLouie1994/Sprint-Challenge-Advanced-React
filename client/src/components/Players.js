@@ -27,7 +27,7 @@ export default class Players extends Component {
     return (
       <Container>
         {this.state.player.map(player => (
-          <PlayerCard  player={player} key={player.id}/>
+          <PlayerCard data-testid='player-name' player={player} key={player.id} />
         ))}
       </Container>
     );
